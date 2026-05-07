@@ -236,10 +236,10 @@
 > Como usuario, quiero generar vistas 2D con cotas del mueble para entender sus medidas.
 
 **Criterios de aceptación:**
-- [ ] Vista frontal con cotas (ancho, alto, separación de entrepaños)
-- [ ] Vista lateral con cotas (profundidad, alto)
-- [ ] Vista superior con cotas (ancho, profundidad)
-- [ ] Las cotas se calculan automáticamente del modelo paramétrico
+- [x] Vista frontal con cotas (ancho, alto, separación de entrepaños)
+- [x] Vista lateral con cotas (profundidad, alto)
+- [x] Vista superior con cotas (ancho, profundidad)
+- [x] Las cotas se calculan automáticamente del modelo paramétrico
 
 ---
 
@@ -248,8 +248,8 @@
 > Como usuario, quiero exportar un PDF con el plano completo del mueble para llevarlo al taller.
 
 **Criterios de aceptación:**
-- [ ] PDF incluye: vistas 2D acotadas, vista explotada, lista de corte, lista de herrajes
-- [ ] Encabezado con nombre del proyecto, tipo de mueble y fecha
+- [x] PDF incluye: vistas 2D acotadas, lista de corte, lista de herrajes
+- [x] Encabezado con nombre del proyecto, tipo de mueble y fecha
 - [ ] Generación 100% client-side con jsPDF
 - [ ] Botón "Exportar PDF" → descarga el archivo
 

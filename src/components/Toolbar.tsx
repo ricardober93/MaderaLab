@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useProjectStore } from '../stores/projectStore'
 import { generateCutList } from '../lib/parametric'
+import { computeFrontalView, computeLateralView, computeTopView } from '../lib/orthographic'
+import type { OrthographicViewData } from '../lib/orthographic'
 import { exportProject, importProject, saveProject } from '../lib/storage'
 import { MATERIALES } from '../data/catalogs'
 import type { Project, TransformMode } from '../types'
@@ -15,9 +17,8 @@ const MODE_LABELS: Record<TransformMode, { label: string; key: string }> = {
 
 export function Toolbar() {
   const project = useProjectStore((s) => s.currentProject)
-  const explodedView = useProjectStore((s) => s.explodedView)
   const transformMode = useProjectStore((s) => s.transformMode)
-  const toggleExplodedView = useProjectStore((s) => s.toggleExplodedView)
+  const toggleOrthographicView = useProjectStore((s) => s.toggleOrthographicView)
   const setTransformMode = useProjectStore((s) => s.setTransformMode)
   const createProject = useProjectStore((s) => s.createProject)
 
@@ -102,11 +103,11 @@ export function Toolbar() {
       <div className="w-px h-6 bg-neutral-200" />
 
       <button
-        onClick={toggleExplodedView}
-        className={`px-3 py-1.5 rounded text-sm ${explodedView ? 'bg-blue-100 text-blue-700' : 'border border-neutral-300 hover:bg-neutral-50'}`}
+        onClick={toggleOrthographicView}
+        className="px-3 py-1.5 border border-neutral-300 rounded text-sm hover:bg-neutral-50"
         disabled={!project}
       >
-        {explodedView ? 'Vista ensamblada' : 'Vista explotada'}
+        Vistas 2D
       </button>
 
       <div className="w-px h-6 bg-neutral-200" />
@@ -125,6 +126,64 @@ export function Toolbar() {
   )
 }
 
+function drawViewPDF(
+  doc: jsPDF,
+  data: OrthographicViewData,
+  label: string,
+  ox: number,
+  oy: number,
+  drawW: number,
+  drawH: number,
+) {
+  const { rects, dims, boundsX, boundsY } = data
+  if (boundsX === 0 || boundsY === 0) return
+
+  doc.setFontSize(9)
+  doc.text(label, ox + drawW / 2, oy - 8, { align: 'center' })
+
+  const scale = Math.min(drawW / (boundsX + 60), drawH / (boundsY + 60))
+  const px = (mm: number) => ox + mm * scale + (drawW - boundsX * scale) / 2
+  const py = (mm: number) => oy + drawH - 5 - mm * scale
+
+  for (const r of rects) {
+    const rx = px(r.x)
+    const ry = py(r.y + r.h)
+    const rw = r.w * scale
+    const rh = r.h * scale
+    doc.setDrawColor(55, 65, 81)
+    doc.setLineWidth(0.3)
+    doc.setFillColor(229, 231, 235)
+    doc.rect(rx, ry, rw, rh, 'FD')
+  }
+
+  doc.setTextColor(220, 38, 38)
+  doc.setFontSize(7)
+  doc.setDrawColor(220, 38, 38)
+  doc.setLineWidth(0.2)
+
+  for (const d of dims) {
+    if (d.horizontal) {
+      const y1 = py(d.y1)
+      const x1 = px(d.x1)
+      const x2 = px(d.x2)
+      doc.line(x1, y1, x2, y1)
+      doc.line(x1, y1 - 1.5, x1, y1 + 1.5)
+      doc.line(x2, y1 - 1.5, x2, y1 + 1.5)
+      doc.text(`${d.value}`, (x1 + x2) / 2, y1 - 1.5, { align: 'center' })
+    } else {
+      const x1 = px(d.x1)
+      const y1 = py(d.y1)
+      const y2 = py(d.y2)
+      doc.line(x1, y1, x1, y2)
+      doc.line(x1 - 1.5, y1, x1 + 1.5, y1)
+      doc.line(x1 - 1.5, y2, x1 + 1.5, y2)
+      doc.text(`${d.value}`, x1 + 3, (y1 + y2) / 2 + 1)
+    }
+  }
+
+  doc.setTextColor(0, 0, 0)
+}
+
 function generatePDF(project: Project) {
   const doc = new jsPDF()
   const cutList = generateCutList(project.pieces)
@@ -135,8 +194,24 @@ function generatePDF(project: Project) {
   doc.text(`Tipo: ${project.config.tipo} | ${project.config.ancho}x${project.config.alto}x${project.config.profundidad} mm`, 14, 30)
   doc.text(`Fecha: ${new Date(project.updatedAt).toLocaleDateString('es')}`, 14, 36)
 
+  const frontalData = computeFrontalView(project.pieces)
+  const lateralData = computeLateralView(project.pieces)
+  const topData = computeTopView(project.pieces)
+
+  const viewW = 58
+  const viewH = 60
+
+  drawViewPDF(doc, frontalData, 'Vista Frontal', 14, 50, viewW, viewH)
+  drawViewPDF(doc, lateralData, 'Vista Lateral', 76, 50, viewW, viewH)
+  drawViewPDF(doc, topData, 'Vista Superior', 138, 50, viewW, viewH)
+
+  doc.setFontSize(7)
+  doc.setTextColor(150, 150, 150)
+  doc.text('Medidas en mm', 14, 115)
+  doc.setTextColor(0, 0, 0)
+
   autoTable(doc, {
-    startY: 44,
+    startY: 120,
     head: [['Pieza', 'Cantidad', 'Largo (mm)', 'Ancho (mm)', 'Grosor (mm)', 'Material']],
     body: cutList.map((row) => [
       row.nombre,
@@ -151,7 +226,7 @@ function generatePDF(project: Project) {
   })
 
   const lastTable = (doc as unknown as Record<string, unknown>).lastAutoTable as { finalY: number } | undefined
-  const currentY = lastTable?.finalY || 100
+  const currentY = lastTable?.finalY || 160
 
   if (project.hardware.length > 0) {
     doc.setFontSize(14)

@@ -10,6 +10,7 @@ interface ProjectState {
   currentProject: Project | null
   selectedPieceId: string | null
   explodedView: boolean
+  showOrthographicView: boolean
   transformMode: TransformMode
 
   loadAllProjects: () => void
@@ -27,6 +28,7 @@ interface ProjectState {
   selectPiece: (pieceId: string | null) => void
   setTransformMode: (mode: TransformMode) => void
   toggleExplodedView: () => void
+  toggleOrthographicView: () => void
   deleteProject: (id: string) => void
   renameProject: (nombre: string) => void
 }
@@ -49,6 +51,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   currentProject: null,
   selectedPieceId: null,
   explodedView: false,
+  showOrthographicView: false,
   transformMode: 'translate',
 
   loadAllProjects: () => {
@@ -175,6 +178,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   setTransformMode: (mode) => set({ transformMode: mode }),
 
   toggleExplodedView: () => set((s) => ({ explodedView: !s.explodedView })),
+  toggleOrthographicView: () => set((s) => ({ showOrthographicView: !s.showOrthographicView })),
 
   deleteProject: (id) => {
     removeProject(id)
