@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@keyframes savedFlash {
+  0% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-saved-flash {
+  animation: savedFlash 1.6s ease-in-out forwards;
+}

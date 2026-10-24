@@ -6,12 +6,17 @@ import { PropertiesPanel } from './components/PropertiesPanel'
 import { Viewport3D } from './components/Viewport3D'
 import { Dashboard } from './components/Dashboard'
 import { OrthographicView } from './components/OrthographicView'
+import { ShortcutsModal } from './components/ShortcutsModal'
+import { OnboardingTour } from './components/OnboardingTour'
 import { useProjectStore } from './stores/projectStore'
+import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts'
 
 export default function App() {
   const currentProject = useProjectStore((s) => s.currentProject)
   const showOrthographicView = useProjectStore((s) => s.showOrthographicView)
   const loadAllProjects = useProjectStore((s) => s.loadAllProjects)
+
+  useKeyboardShortcuts()
 
   useEffect(() => {
     loadAllProjects()
@@ -39,6 +44,8 @@ export default function App() {
         </div>
       </div>
       {showOrthographicView && <OrthographicView />}
+      <ShortcutsModal />
+      <OnboardingTour />
     </div>
   )
 }

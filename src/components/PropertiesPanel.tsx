@@ -20,7 +20,7 @@ export function PropertiesPanel() {
 
   if (!selectedPiece) {
     return (
-      <div className="p-4">
+      <div className="p-4" data-tour="props">
         <h2 className="text-lg font-semibold border-b border-neutral-200 pb-2 mb-4">Propiedades</h2>
         <p className="text-sm text-neutral-400">Selecciona una pieza</p>
 
@@ -78,7 +78,7 @@ export function PropertiesPanel() {
   }
 
   return (
-    <div className="p-4 flex flex-col gap-4 overflow-y-auto h-full">
+    <div className="p-4 flex flex-col gap-4 overflow-y-auto h-full" data-tour="props">
       <h2 className="text-lg font-semibold border-b border-neutral-200 pb-2">Propiedades</h2>
 
       <div>

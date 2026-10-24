@@ -5,13 +5,19 @@ import { DEFAULT_CONFIGS, toCutDimension } from '../types'
 import { generateFurniture } from '../lib/parametric'
 import { saveProject, loadProjects, removeProject } from '../lib/storage'
 
+const HISTORY_LIMIT = 50
+
 interface ProjectState {
   projects: Project[]
   currentProject: Project | null
   selectedPieceId: string | null
   explodedView: boolean
   showOrthographicView: boolean
+  showShortcuts: boolean
   transformMode: TransformMode
+  past: Project[]
+  future: Project[]
+  savedAt: number
 
   loadAllProjects: () => void
   createProject: (tipo: FurnitureType) => void
@@ -25,12 +31,17 @@ interface ProjectState {
   updatePieceRotation: (pieceId: string, rotation: Rotation) => void
   updatePieceScale: (pieceId: string, scale: Scale) => void
   resetPieceTransform: (pieceId: string) => void
+  deletePiece: (pieceId: string) => void
   selectPiece: (pieceId: string | null) => void
   setTransformMode: (mode: TransformMode) => void
   toggleExplodedView: () => void
   toggleOrthographicView: () => void
+  setShowShortcuts: (v: boolean) => void
   deleteProject: (id: string) => void
   renameProject: (nombre: string) => void
+  undo: () => void
+  redo: () => void
+  markSaved: () => void
 }
 
 function updatePieceInProject(project: Project, pieceId: string, updater: (p: typeof project.pieces[0]) => typeof project.pieces[0]): Project {
@@ -38,12 +49,27 @@ function updatePieceInProject(project: Project, pieceId: string, updater: (p: ty
   return { ...project, pieces, updatedAt: Date.now() }
 }
 
-function syncStore(set: ProjectState, updated: Project) {
-  const s = set as unknown as { projects: Project[] }
+function applyChange(
+  set: ProjectState,
+  prev: Project,
+  next: Project,
+  extra?: Partial<ProjectState>,
+) {
+  saveProject(next)
+  const s = set as unknown as StateWithHistory
   return {
-    currentProject: updated,
-    projects: s.projects.map((p) => (p.id === updated.id ? updated : p)),
+    currentProject: next,
+    projects: s.projects.map((p) => (p.id === next.id ? next : p)),
+    past: [...s.past, prev].slice(-HISTORY_LIMIT),
+    future: [],
+    ...extra,
   }
+}
+
+type StateWithHistory = {
+  projects: Project[]
+  past: Project[]
+  future: Project[]
 }
 
 export const useProjectStore = create<ProjectState>((set, get) => ({
@@ -53,6 +79,10 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   explodedView: false,
   showOrthographicView: false,
   transformMode: 'translate',
+  past: [],
+  future: [],
+  savedAt: 0,
+  showShortcuts: false,
 
   loadAllProjects: () => {
     const projects = loadProjects()
@@ -77,6 +107,8 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       currentProject: project,
       projects: [...s.projects, project],
       selectedPieceId: null,
+      past: [],
+      future: [],
     }))
   },
 
@@ -84,7 +116,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const projects = loadProjects()
     const project = projects.find((p) => p.id === id)
     if (project) {
-      set({ currentProject: project, selectedPieceId: null })
+      set({ currentProject: project, selectedPieceId: null, past: [], future: [] })
     }
   },
 
@@ -94,24 +126,21 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const newConfig = { ...currentProject.config, ...partial }
     const { pieces, hardware } = generateFurniture(newConfig)
     const updated: Project = { ...currentProject, config: newConfig, pieces, hardware, updatedAt: Date.now() }
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
   },
 
   updatePieceMaterial: (pieceId, materialId) => {
     const { currentProject } = get()
     if (!currentProject) return
     const updated = updatePieceInProject(currentProject, pieceId, (p) => ({ ...p, materialId }))
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
   },
 
   updatePieceColor: (pieceId, color) => {
     const { currentProject } = get()
     if (!currentProject) return
     const updated = updatePieceInProject(currentProject, pieceId, (p) => ({ ...p, color }))
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
   },
 
   updateAllMaterials: (materialId) => {
@@ -119,8 +148,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     if (!currentProject) return
     const pieces = currentProject.pieces.map((p) => ({ ...p, materialId }))
     const updated = { ...currentProject, pieces, materialId, updatedAt: Date.now() }
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
   },
 
   updateAllColors: (color) => {
@@ -128,24 +156,21 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     if (!currentProject) return
     const pieces = currentProject.pieces.map((p) => ({ ...p, color }))
     const updated = { ...currentProject, pieces, updatedAt: Date.now() }
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
   },
 
   updatePiecePosition: (pieceId, position) => {
     const { currentProject } = get()
     if (!currentProject) return
     const updated = updatePieceInProject(currentProject, pieceId, (p) => ({ ...p, position }))
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
   },
 
   updatePieceRotation: (pieceId, rotation) => {
     const { currentProject } = get()
     if (!currentProject) return
     const updated = updatePieceInProject(currentProject, pieceId, (p) => ({ ...p, rotation }))
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
   },
 
   updatePieceScale: (pieceId, scale) => {
@@ -156,8 +181,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       scale,
       cutDimension: toCutDimension(p.dimension, scale),
     }))
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
   },
 
   resetPieceTransform: (pieceId) => {
@@ -169,8 +193,16 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       scale: { x: 1, y: 1, z: 1 },
       cutDimension: toCutDimension(p.dimension),
     }))
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
+  },
+
+  deletePiece: (pieceId) => {
+    const { currentProject } = get()
+    if (!currentProject) return
+    const pieces = currentProject.pieces.filter((p) => p.id !== pieceId)
+    if (pieces.length === currentProject.pieces.length) return
+    const updated: Project = { ...currentProject, pieces, updatedAt: Date.now() }
+    set((s) => applyChange(s, currentProject, updated, { selectedPieceId: null }))
   },
 
   selectPiece: (pieceId) => set({ selectedPieceId: pieceId }),
@@ -179,6 +211,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
 
   toggleExplodedView: () => set((s) => ({ explodedView: !s.explodedView })),
   toggleOrthographicView: () => set((s) => ({ showOrthographicView: !s.showOrthographicView })),
+  setShowShortcuts: (v) => set({ showShortcuts: v }),
 
   deleteProject: (id) => {
     removeProject(id)
@@ -192,7 +225,34 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const { currentProject } = get()
     if (!currentProject) return
     const updated = { ...currentProject, nombre, updatedAt: Date.now() }
-    saveProject(updated)
-    set((s) => syncStore(s, updated))
+    set((s) => applyChange(s, currentProject, updated))
   },
+
+  undo: () => {
+    const { past, currentProject } = get()
+    if (past.length === 0 || !currentProject) return
+    const prev = past[past.length - 1]
+    saveProject(prev)
+    set((s) => ({
+      currentProject: prev,
+      projects: s.projects.map((p) => (p.id === prev.id ? prev : p)),
+      past: past.slice(0, -1),
+      future: [currentProject, ...s.future].slice(0, HISTORY_LIMIT),
+    }))
+  },
+
+  redo: () => {
+    const { future, currentProject } = get()
+    if (future.length === 0 || !currentProject) return
+    const next = future[0]
+    saveProject(next)
+    set((s) => ({
+      currentProject: next,
+      projects: s.projects.map((p) => (p.id === next.id ? next : p)),
+      past: [...s.past, currentProject].slice(-HISTORY_LIMIT),
+      future: future.slice(1),
+    }))
+  },
+
+  markSaved: () => set({ savedAt: Date.now() }),
 }))

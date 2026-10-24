@@ -10,7 +10,7 @@ function migrateProject(project: Project): Project {
   let needsMigration = false
 
   const pieces = project.pieces.map((p): Piece => {
-    let updated = { ...p }
+    const updated = { ...p }
     const dim = p.dimension as unknown as Record<string, unknown>
 
     if (dim && 'largo' in dim && !('sizeX' in dim)) {

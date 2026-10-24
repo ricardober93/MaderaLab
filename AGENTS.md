@@ -30,6 +30,9 @@ App web client-side para diseñar muebles en 3D, pintarlos y generar planos de c
 - `src/stores/projectStore.ts` — Store Zustand: proyectos, configuración, piezas, selección
 - `src/lib/orthographic.ts` — Proyecciones 2D: computeFrontalView, computeLateralView, computeTopView (rectángulos + cotas)
 - `src/components/OrthographicView.tsx` — Modal SVG con 3 vistas 2D acotadas
+- `src/hooks/useKeyboardShortcuts.ts` — Hook global de atajos: W/E/R, Delete, Ctrl+S, Ctrl+Z/Ctrl+Shift+Z, Esc (guard de inputs)
+- `src/components/ShortcutsModal.tsx` — Modal de referencia de atajos (estado en store: showShortcuts)
+- `src/components/OnboardingTour.tsx` — Tour de primer uso, 4 pasos, flag `maderalab_onboarding_done` en localStorage
 
 ## Decisiones clave
 
@@ -44,14 +47,17 @@ App web client-side para diseñar muebles en 3D, pintarlos y generar planos de c
 - HU-001 a HU-018 (scaffolding, tipos, catálogos, motor paramétrico, viewport 3D, selección, vista explotada, materiales/colores, layout, paneles, dashboard, persistencia, export JSON)
 - HU-019 (vistas 2D acotadas en pantalla + PDF), HU-020 (vistas 2D en PDF actualizado, antes solo tablas)
 - HU-020 (export PDF con vistas 2D vectoriales), HU-021 (export CSV)
+- HU-022 (undo/redo con snapshots en projectStore, límite 50, botones en toolbar)
+- HU-023 (validación de dimensiones en ConfigPanel: rango, error inline, clamp en blur; grosores estándar por select)
+- HU-024 (atajos consolidados en useKeyboardShortcuts + modal de atajos + "Guardado ✓" con Ctrl+S)
+- HU-025 (onboarding de 4 pasos, saltable, flag en localStorage)
 - HU-BUG-001 a HU-BUG-007 (fixes de versiones, escala, guards, layout, dimensiones espaciales, offsetY, migración localStorage)
+
+Cambios recientes resumidos en change archivado: `openspec/changes/archive/2026-10-24-add-ux-core-polish/` (specs en `openspec/specs/`: undo-redo, input-validation, keyboard-shortcuts, onboarding)
 
 ## HUs pendientes
 
-- HU-022: Undo/Redo (stack de 50 estados, Ctrl+Z/Ctrl+Shift+Z)
-- HU-023: Validación de inputs (dimensiones mín/máx, grosores estándar)
-- HU-024: Atajos de teclado (Delete, Ctrl+S, Ctrl+Z, Esc)
-- HU-025: Onboarding mínimo (tour en primer uso)
+(ninguna — todas las HUs del roadmap están completas)
 
 ## Documentación
 

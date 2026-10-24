@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState } from 'react'
 import { useProjectStore } from '../stores/projectStore'
 import { generateCutList } from '../lib/parametric'
 import { computeFrontalView, computeLateralView, computeTopView } from '../lib/orthographic'
@@ -15,23 +15,21 @@ const MODE_LABELS: Record<TransformMode, { label: string; key: string }> = {
   scale: { label: 'Escalar', key: 'R' },
 }
 
+const btnSecondary =
+  'px-3 py-1.5 rounded text-sm border border-neutral-300 text-neutral-700 hover:bg-neutral-100 hover:border-neutral-400 disabled:opacity-40 disabled:cursor-not-allowed'
+
 export function Toolbar() {
   const project = useProjectStore((s) => s.currentProject)
   const transformMode = useProjectStore((s) => s.transformMode)
   const toggleOrthographicView = useProjectStore((s) => s.toggleOrthographicView)
+  const setShowShortcuts = useProjectStore((s) => s.setShowShortcuts)
   const setTransformMode = useProjectStore((s) => s.setTransformMode)
   const createProject = useProjectStore((s) => s.createProject)
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement) return
-      if (e.key === 'w' || e.key === 'W') setTransformMode('translate')
-      if (e.key === 'e' || e.key === 'E') setTransformMode('rotate')
-      if (e.key === 'r' || e.key === 'R') setTransformMode('scale')
-    }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [setTransformMode])
+  const undo = useProjectStore((s) => s.undo)
+  const redo = useProjectStore((s) => s.redo)
+  const canUndo = useProjectStore((s) => s.past.length > 0)
+  const canRedo = useProjectStore((s) => s.future.length > 0)
+  const savedAt = useProjectStore((s) => s.savedAt)
 
   const handleNew = () => {
     if (confirm('Crear nuevo proyecto?')) {
@@ -39,9 +37,13 @@ export function Toolbar() {
     }
   }
 
+  const [flash, setFlash] = useState<{ msg: string; key: number } | null>(null)
+  const notifyFlash = (msg: string) => setFlash({ msg, key: Date.now() })
+
   const handleExportJSON = () => {
     if (!project) return
     exportProject(project)
+    notifyFlash('JSON exportado ✓')
   }
 
   const handleImportJSON = () => {
@@ -65,23 +67,34 @@ export function Toolbar() {
   const handleExportPDF = () => {
     if (!project) return
     generatePDF(project)
+    notifyFlash('PDF exportado ✓')
   }
 
   const handleExportCSV = () => {
     if (!project) return
     generateCSV(project)
+    notifyFlash('CSV exportado ✓')
   }
 
   return (
-    <div className="flex items-center gap-2 px-4 py-2 bg-white border-b border-neutral-200">
-      <button onClick={handleNew} className="px-3 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">
+    <div className="flex items-center gap-2 px-4 py-2 bg-white border-b border-neutral-200" data-tour="toolbar">
+      <button onClick={handleNew} className="px-3 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 font-medium">
         Nuevo
       </button>
-      <button onClick={handleExportJSON} className="px-3 py-1.5 border border-neutral-300 rounded text-sm hover:bg-neutral-50" disabled={!project}>
+      <button onClick={handleExportJSON} className={btnSecondary} disabled={!project}>
         Exportar JSON
       </button>
-      <button onClick={handleImportJSON} className="px-3 py-1.5 border border-neutral-300 rounded text-sm hover:bg-neutral-50">
+      <button onClick={handleImportJSON} className={btnSecondary}>
         Importar JSON
+      </button>
+
+      <div className="w-px h-6 bg-neutral-200" />
+
+      <button onClick={undo} className="px-2.5 py-1.5 rounded text-sm border border-neutral-300 text-neutral-700 hover:bg-neutral-100 hover:border-neutral-400 disabled:opacity-40 disabled:cursor-not-allowed" disabled={!canUndo} title="Deshacer (Ctrl+Z)">
+        ↺
+      </button>
+      <button onClick={redo} className="px-2.5 py-1.5 rounded text-sm border border-neutral-300 text-neutral-700 hover:bg-neutral-100 hover:border-neutral-400 disabled:opacity-40 disabled:cursor-not-allowed" disabled={!canRedo} title="Rehacer (Ctrl+Shift+Z)">
+        ↻
       </button>
 
       <div className="w-px h-6 bg-neutral-200" />
@@ -91,7 +104,7 @@ export function Toolbar() {
           key={mode}
           onClick={() => setTransformMode(mode)}
           className={`px-3 py-1.5 rounded text-sm ${
-            transformMode === mode ? 'bg-blue-100 text-blue-700 font-medium' : 'border border-neutral-300 hover:bg-neutral-50'
+            transformMode === mode ? 'bg-blue-100 text-blue-700 font-medium' : 'border border-neutral-300 text-neutral-700 hover:bg-neutral-100 hover:border-neutral-400'
           }`}
           disabled={!project}
           title={`${label} (${key})`}
@@ -104,7 +117,7 @@ export function Toolbar() {
 
       <button
         onClick={toggleOrthographicView}
-        className="px-3 py-1.5 border border-neutral-300 rounded text-sm hover:bg-neutral-50"
+        className={btnSecondary}
         disabled={!project}
       >
         Vistas 2D
@@ -112,16 +125,27 @@ export function Toolbar() {
 
       <div className="w-px h-6 bg-neutral-200" />
 
-      <button onClick={handleExportPDF} className="px-3 py-1.5 border border-neutral-300 rounded text-sm hover:bg-neutral-50" disabled={!project}>
+      <button onClick={handleExportPDF} className={btnSecondary} disabled={!project} title="Ctrl+S guarda el proyecto">
         Exportar PDF
       </button>
-      <button onClick={handleExportCSV} className="px-3 py-1.5 border border-neutral-300 rounded text-sm hover:bg-neutral-50" disabled={!project}>
+      <button onClick={handleExportCSV} className={btnSecondary} disabled={!project}>
         Exportar CSV
       </button>
+      <button onClick={() => setShowShortcuts(true)} className="px-2.5 py-1.5 rounded text-sm border border-transparent text-neutral-500 hover:bg-neutral-100" title="Atajos de teclado">
+        ⌘ Atajos
+      </button>
 
-      {project && (
-        <span className="ml-auto text-sm text-neutral-500">{project.nombre}</span>
-      )}
+      <span className="ml-auto flex items-center gap-3">
+        <span key={flash?.key ?? 'none'} className="text-xs text-blue-600 font-medium">
+          {flash ? <span className="animate-saved-flash">{flash.msg}</span> : null}
+        </span>
+        {savedAt > 0 && (
+          <span key={savedAt} className="text-xs text-green-600 font-medium animate-saved-flash">
+            Guardado ✓
+          </span>
+        )}
+        {project && <span className="text-sm text-neutral-500">{project.nombre}</span>}
+      </span>
     </div>
   )
 }
