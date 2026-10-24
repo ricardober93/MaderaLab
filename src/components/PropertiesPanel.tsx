@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useProjectStore } from '../stores/projectStore'
 import { MATERIALES, PALETA_COLORES } from '../data/catalogs'
+import { texturaSwatch } from '../lib/textures'
 import { metrajeCanto } from '../lib/budget'
 import type { CantosEstado, Position, Rotation, Scale } from '../types'
 
@@ -135,15 +136,27 @@ export function PropertiesPanel() {
 
       <div className="border-t border-neutral-200 pt-4">
         <label className="block text-sm font-medium text-neutral-600 mb-1">Material</label>
-        <select
-          className="w-full border border-neutral-300 rounded px-2 py-1.5 text-sm"
-          value={selectedPiece.materialId}
-          onChange={(e) => updatePieceMaterial(selectedPiece.id, e.target.value)}
-        >
+        <label className="block text-sm font-medium text-neutral-600 mb-1">Material</label>
+        <div className="grid grid-cols-2 gap-1.5">
           {MATERIALES.map((m) => (
-            <option key={m.id} value={m.id}>{m.nombre}</option>
+            <button
+              key={m.id}
+              onClick={() => updatePieceMaterial(selectedPiece.id, m.id)}
+              title={m.nombre}
+              className={`flex items-center gap-1.5 px-1.5 py-1 rounded border text-xs text-neutral-700 text-left hover:border-neutral-400 transition-colors ${
+                selectedPiece.materialId === m.id ? 'border-blue-500 ring-1 ring-blue-500' : 'border-neutral-300'
+              }`}
+            >
+              <img
+                src={texturaSwatch(m.id)}
+                alt=""
+                className="w-5 h-5 rounded border border-neutral-300 shrink-0"
+                style={{ imageRendering: 'pixelated' }}
+              />
+              <span className="truncate">{m.nombre}</span>
+            </button>
           ))}
-        </select>
+        </div>
 
         <label className="block text-sm font-medium text-neutral-600 mb-1 mt-4">Cantos</label>
         <select

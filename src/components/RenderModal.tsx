@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import { ContactShadows, Environment, Lightformer } from '@react-three/drei'
 import type { WebGLRenderer, Scene, PerspectiveCamera } from 'three'
@@ -30,6 +30,14 @@ export function RenderModal({ project }: { project: Project }) {
 
   const glRef = useRef<{ gl: WebGLRenderer; scene: Scene; camera: PerspectiveCamera } | null>(null)
   const bounds = computeRenderBounds(project.pieces)
+  const materialDefault = project.config.materialId ?? 'melamina_blanca'
+  const materialPorPieza = useMemo(() => {
+    const m = new Map<string, string>()
+    for (const pieza of project.pieces) {
+      m.set(pieza.id, pieza.materialCustom ? (pieza.materialId ?? materialDefault) : materialDefault)
+    }
+    return m
+  }, [project.pieces, materialDefault])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -115,7 +123,7 @@ export function RenderModal({ project }: { project: Project }) {
 
             <group position={[-bounds.centerX, -bounds.centerY, -bounds.centerZ]}>
               {project.pieces.map((p) => (
-                <PieceMesh key={p.id} piece={p} selected={false} offsetY={0} onClick={() => {}} bordes />
+                <PieceMesh key={p.id} piece={p} selected={false} offsetY={0} onClick={() => {}} bordes texturaId={materialPorPieza.get(p.id) ?? undefined} />
               ))}
             </group>
 
