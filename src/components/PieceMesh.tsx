@@ -10,9 +10,10 @@ interface PieceMeshProps {
   offsetY: number
   onClick: () => void
   useOwnTransform?: boolean
+  bordes?: boolean
 }
 
-export function PieceMesh({ piece, selected, offsetY, onClick, useOwnTransform = true }: PieceMeshProps) {
+export function PieceMesh({ piece, selected, offsetY, onClick, useOwnTransform = true, bordes = false }: PieceMeshProps) {
   const { dimension, position, rotation, scale, materialId, color } = piece
   const mat = MATERIALES.find((m) => m.id === materialId)
   const fillColor = color || mat?.colorDefault || '#cccccc'
@@ -48,13 +49,21 @@ export function PieceMesh({ piece, selected, offsetY, onClick, useOwnTransform =
 
   return (
     <group position={groupPosition} rotation={groupRotation} scale={groupScale}>
-      <mesh onClick={(e) => { e.stopPropagation(); onClick() }}>
+      <mesh castShadow receiveShadow onClick={(e) => { e.stopPropagation(); onClick() }}>
         <boxGeometry args={[scaledX, scaledY, scaledZ]} />
-        <meshStandardMaterial color={fillColor} opacity={selected ? 0.85 : 1} transparent={selected} />
+        <meshPhysicalMaterial
+          color={fillColor}
+          roughness={0.35}
+          metalness={0.05}
+          clearcoat={0.25}
+          clearcoatRoughness={0.35}
+          opacity={selected ? 0.85 : 1}
+          transparent={selected}
+        />
       </mesh>
-      {selected && (
+      {(selected || bordes) && (
         <lineSegments geometry={edgesGeometry}>
-          <lineBasicMaterial color="#3b82f6" linewidth={2} />
+          <lineBasicMaterial color={selected ? '#3b82f6' : '#6b6b6b'} linewidth={2} />
         </lineSegments>
       )}
     </group>

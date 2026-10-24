@@ -1,20 +1,23 @@
 import type { Project, Piece, SpatialDimension, Rotation, Scale } from '../types'
-import { toCutDimension } from '../types'
+import { toCutDimension, DEFAULT_CONFIGS } from '../types'
+import { legacyKeyFor } from './parametric'
 
 const STORAGE_KEY = 'maderalab_projects'
 
 const DEFAULT_ROTATION: Rotation = { x: 0, y: 0, z: 0 }
 const DEFAULT_SCALE: Scale = { x: 1, y: 1, z: 1 }
 
-function migrateProject(project: Project): Project {
-  let needsMigration = false
+const TIPOS_VALIDOS = new Set(Object.keys(DEFAULT_CONFIGS))
 
-  const pieces = project.pieces.map((p): Piece => {
+function migrateProjectPieces(project: Project, pieces: Piece[], needsMigration: () => void): Piece[] {
+  const tipo = project?.config?.tipo
+  const isTipoValido = typeof tipo === 'string' && TIPOS_VALIDOS.has(tipo)
+  return pieces.map((p) => {
     const updated = { ...p }
     const dim = p.dimension as unknown as Record<string, unknown>
 
     if (dim && 'largo' in dim && !('sizeX' in dim)) {
-      needsMigration = true
+      needsMigration()
       const oldDim = dim as { largo: number; ancho: number; grosor: number }
       const dimension: SpatialDimension = {
         sizeX: oldDim.largo,
@@ -26,23 +29,38 @@ function migrateProject(project: Project): Project {
     }
 
     if (!updated.cutDimension) {
-      needsMigration = true
+      needsMigration()
       updated.cutDimension = toCutDimension(updated.dimension, updated.scale)
     }
 
     if (!updated.rotation) {
-      needsMigration = true
+      needsMigration()
       updated.rotation = { ...DEFAULT_ROTATION }
     }
 
     if (!updated.scale) {
-      needsMigration = true
+      needsMigration()
       updated.scale = { ...DEFAULT_SCALE }
       updated.cutDimension = toCutDimension(updated.dimension, updated.scale)
     }
 
+    if (isTipoValido && !updated.generationKey) {
+      const key = legacyKeyFor(project.config.tipo, updated.nombre)
+      if (key) {
+        updated.generationKey = key
+        needsMigration()
+      }
+    }
+
     return updated
   })
+}
+
+export function migrateProject(project: Project): Project {
+  let needsMigration = false
+  const flag = () => { needsMigration = true }
+
+  const pieces = migrateProjectPieces(project, project.pieces ?? [], flag)
 
   if (needsMigration) {
     return { ...project, pieces, updatedAt: Date.now() }

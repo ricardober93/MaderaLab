@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useProjectStore } from '../stores/projectStore'
 import { DIMENSION_LIMITS, GROSORES_ESTANDAR, type FurnitureType } from '../types'
+import { MATERIALES } from '../data/catalogs'
 
 const FURNITURE_LABELS: Record<FurnitureType, string> = {
   estanteria: 'Estantería',
@@ -81,6 +82,19 @@ export function ConfigPanel() {
         >
           {GROSORES_ESTANDAR.map((g) => (
             <option key={g} value={g}>{g} mm</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-neutral-600 mb-1">Material del mueble</label>
+        <select
+          className={inputOk}
+          value={config.materialId || 'melamina_blanca'}
+          onChange={(e) => updateConfig({ materialId: e.target.value })}
+        >
+          {MATERIALES.map((m) => (
+            <option key={m.id} value={m.id}>{m.nombre}</option>
           ))}
         </select>
       </div>

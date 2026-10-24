@@ -1,16 +1,20 @@
+import { useState } from 'react'
 import { useProjectStore } from '../stores/projectStore'
 import { MATERIALES, PALETA_COLORES } from '../data/catalogs'
-import type { Position, Rotation, Scale } from '../types'
+import { metrajeCanto } from '../lib/budget'
+import type { CantosEstado, Position, Rotation, Scale } from '../types'
 
 export function PropertiesPanel() {
   const project = useProjectStore((s) => s.currentProject)
   const selectedPieceId = useProjectStore((s) => s.selectedPieceId)
   const updatePieceMaterial = useProjectStore((s) => s.updatePieceMaterial)
   const updatePieceColor = useProjectStore((s) => s.updatePieceColor)
+  const updatePieceName = useProjectStore((s) => s.updatePieceName)
   const updatePiecePosition = useProjectStore((s) => s.updatePiecePosition)
   const updatePieceRotation = useProjectStore((s) => s.updatePieceRotation)
   const updatePieceScale = useProjectStore((s) => s.updatePieceScale)
   const resetPieceTransform = useProjectStore((s) => s.resetPieceTransform)
+  const updatePieceCantos = useProjectStore((s) => s.updatePieceCantos)
   const updateAllMaterials = useProjectStore((s) => s.updateAllMaterials)
   const updateAllColors = useProjectStore((s) => s.updateAllColors)
 
@@ -82,8 +86,12 @@ export function PropertiesPanel() {
       <h2 className="text-lg font-semibold border-b border-neutral-200 pb-2">Propiedades</h2>
 
       <div>
-        <p className="text-sm font-medium text-neutral-600">Nombre</p>
-        <p className="text-sm">{selectedPiece.nombre}</p>
+        <label className="block text-sm font-medium text-neutral-600 mb-1">Nombre</label>
+        <NameInput
+          value={selectedPiece.nombre}
+          isCustom={!!selectedPiece.nombreCustom}
+          onCommit={(v) => updatePieceName(selectedPiece.id, v)}
+        />
       </div>
 
       <div>
@@ -136,6 +144,27 @@ export function PropertiesPanel() {
             <option key={m.id} value={m.id}>{m.nombre}</option>
           ))}
         </select>
+
+        <label className="block text-sm font-medium text-neutral-600 mb-1 mt-4">Cantos</label>
+        <select
+          className={`w-full border rounded px-2 py-1.5 text-sm ${
+            selectedPiece.cantosCustom ? 'border-amber-300 bg-amber-50' : 'border-neutral-300'
+          }`}
+          value={selectedPiece.cantos ?? 'sin_canto'}
+          onChange={(e) => updatePieceCantos(selectedPiece.id, e.target.value as CantosEstado)}
+          title={
+            selectedPiece.cantosCustom
+              ? 'Cantos personalizados: se conservan al regenerar el mueble'
+              : 'Default del generador para este tipo de pieza'
+          }
+        >
+          <option value="sin_canto">Sin canto</option>
+          <option value="largo">2 aristas largas</option>
+          <option value="cuatro_lados">4 lados</option>
+        </select>
+        <p className="text-xs text-neutral-400 mt-1">
+          {(metrajeCanto(selectedPiece) * 1000).toFixed(0)} mm de canto en esta pieza
+        </p>
       </div>
 
       <div>
@@ -158,6 +187,35 @@ export function PropertiesPanel() {
         />
       </div>
     </div>
+  )
+}
+
+function NameInput({ value, isCustom, onCommit }: { value: string; isCustom: boolean; onCommit: (v: string) => void }) {
+  const [text, setText] = useState(value)
+  const [prevValue, setPrevValue] = useState(value)
+  if (!isCustom && value !== prevValue) {
+    setPrevValue(value)
+    setText(value)
+  }
+
+  const commit = () => {
+    if (text.trim() && text.trim() !== value) onCommit(text)
+    else setText(value)
+  }
+
+  return (
+    <input
+      className={`w-full border rounded px-2 py-1.5 text-sm ${
+        isCustom ? 'border-amber-300 bg-amber-50' : 'border-neutral-300'
+      }`}
+      value={text}
+      onChange={(e) => setText(e.target.value)}
+      onBlur={commit}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') (e.target as HTMLInputElement).blur()
+      }}
+      title={isCustom ? 'Nombre renombrado: se conserva al regenerar el mueble' : undefined}
+    />
   )
 }
 

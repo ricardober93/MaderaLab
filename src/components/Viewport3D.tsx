@@ -134,6 +134,7 @@ export function Viewport3D() {
 
         {selectedPiece && !explodedView && (
           <TransformControls
+            key={selectedPiece.id}
             object={groupRef as React.RefObject<import('three').Object3D>}
             mode={transformMode}
             onMouseUp={persistTransform}

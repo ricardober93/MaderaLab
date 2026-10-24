@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import { v4 as uuid } from 'uuid'
-import type { Project, FurnitureConfig, FurnitureType, Position, Rotation, Scale, TransformMode } from '../types'
+import type { Project, FurnitureConfig, FurnitureType, Position, Rotation, Scale, TransformMode, CantosEstado } from '../types'
 import { DEFAULT_CONFIGS, toCutDimension } from '../types'
 import { generateFurniture } from '../lib/parametric'
+import { mergePieces } from '../lib/merge'
 import { saveProject, loadProjects, removeProject } from '../lib/storage'
 
 const HISTORY_LIMIT = 50
@@ -14,6 +15,9 @@ interface ProjectState {
   explodedView: boolean
   showOrthographicView: boolean
   showShortcuts: boolean
+  showBudget: boolean
+  showRender: boolean
+  lastRenderDataUrl: string | null
   transformMode: TransformMode
   past: Project[]
   future: Project[]
@@ -24,6 +28,8 @@ interface ProjectState {
   openProject: (id: string) => void
   updateConfig: (partial: Partial<FurnitureConfig>) => void
   updatePieceMaterial: (pieceId: string, materialId: string) => void
+  updatePieceCantos: (pieceId: string, cantos: CantosEstado) => void
+  updatePieceName: (pieceId: string, nombre: string) => void
   updatePieceColor: (pieceId: string, color: string) => void
   updateAllMaterials: (materialId: string) => void
   updateAllColors: (color: string) => void
@@ -37,6 +43,9 @@ interface ProjectState {
   toggleExplodedView: () => void
   toggleOrthographicView: () => void
   setShowShortcuts: (v: boolean) => void
+  setShowBudget: (v: boolean) => void
+  setShowRender: (v: boolean) => void
+  setLastRenderDataUrl: (v: string | null) => void
   deleteProject: (id: string) => void
   renameProject: (nombre: string) => void
   undo: () => void
@@ -83,6 +92,9 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   future: [],
   savedAt: 0,
   showShortcuts: false,
+  showBudget: false,
+  showRender: false,
+  lastRenderDataUrl: null,
 
   loadAllProjects: () => {
     const projects = loadProjects()
@@ -90,7 +102,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   },
 
   createProject: (tipo) => {
-    const config = { ...DEFAULT_CONFIGS[tipo], tipo }
+    const config = { ...DEFAULT_CONFIGS[tipo], materialId: 'melamina_blanca', tipo }
     const { pieces, hardware } = generateFurniture(config)
     const project: Project = {
       id: uuid(),
@@ -109,6 +121,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
       selectedPieceId: null,
       past: [],
       future: [],
+      lastRenderDataUrl: null,
     }))
   },
 
@@ -116,7 +129,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const projects = loadProjects()
     const project = projects.find((p) => p.id === id)
     if (project) {
-      set({ currentProject: project, selectedPieceId: null, past: [], future: [] })
+      set({ currentProject: project, selectedPieceId: null, past: [], future: [], lastRenderDataUrl: null })
     }
   },
 
@@ -124,15 +137,47 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
     const { currentProject } = get()
     if (!currentProject) return
     const newConfig = { ...currentProject.config, ...partial }
-    const { pieces, hardware } = generateFurniture(newConfig)
-    const updated: Project = { ...currentProject, config: newConfig, pieces, hardware, updatedAt: Date.now() }
+    const canonical = generateFurniture(newConfig)
+    const updated: Project = {
+      ...currentProject,
+      config: newConfig,
+      pieces: mergePieces(currentProject.pieces, canonical.pieces),
+      hardware: canonical.hardware,
+      updatedAt: Date.now(),
+    }
+    set((s) => applyChange(s, currentProject, updated))
+  },
+
+  updatePieceName: (pieceId, nombre) => {
+    const { currentProject } = get()
+    if (!currentProject || !nombre.trim()) return
+    const updated = updatePieceInProject(currentProject, pieceId, (p) => ({
+      ...p,
+      nombre: nombre.trim(),
+      nombreCustom: true,
+    }))
     set((s) => applyChange(s, currentProject, updated))
   },
 
   updatePieceMaterial: (pieceId, materialId) => {
     const { currentProject } = get()
     if (!currentProject) return
-    const updated = updatePieceInProject(currentProject, pieceId, (p) => ({ ...p, materialId }))
+    const updated = updatePieceInProject(currentProject, pieceId, (p) => ({
+      ...p,
+      materialId,
+      materialCustom: true,
+    }))
+    set((s) => applyChange(s, currentProject, updated))
+  },
+
+  updatePieceCantos: (pieceId, cantos) => {
+    const { currentProject } = get()
+    if (!currentProject) return
+    const updated = updatePieceInProject(currentProject, pieceId, (p) => ({
+      ...p,
+      cantos,
+      cantosCustom: true,
+    }))
     set((s) => applyChange(s, currentProject, updated))
   },
 
@@ -146,8 +191,14 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   updateAllMaterials: (materialId) => {
     const { currentProject } = get()
     if (!currentProject) return
-    const pieces = currentProject.pieces.map((p) => ({ ...p, materialId }))
-    const updated = { ...currentProject, pieces, materialId, updatedAt: Date.now() }
+    const pieces = currentProject.pieces.map((p) => ({ ...p, materialId, materialCustom: false }))
+    const updated = {
+      ...currentProject,
+      pieces,
+      materialId,
+      config: { ...currentProject.config, materialId },
+      updatedAt: Date.now(),
+    }
     set((s) => applyChange(s, currentProject, updated))
   },
 
@@ -212,6 +263,9 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
   toggleExplodedView: () => set((s) => ({ explodedView: !s.explodedView })),
   toggleOrthographicView: () => set((s) => ({ showOrthographicView: !s.showOrthographicView })),
   setShowShortcuts: (v) => set({ showShortcuts: v }),
+  setShowBudget: (v) => set({ showBudget: v }),
+  setShowRender: (v) => set({ showRender: v }),
+  setLastRenderDataUrl: (v) => set({ lastRenderDataUrl: v }),
 
   deleteProject: (id) => {
     removeProject(id)

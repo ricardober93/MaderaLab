@@ -1,0 +1,3770 @@
+{
+  "estanteria.default": [
+    {
+      "nombre": "Base inferior",
+      "kind": "base",
+      "dimension": {
+        "sizeX": 800,
+        "sizeY": 16,
+        "sizeZ": 300
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 1",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 16,
+        "sizeZ": 297
+      },
+      "position": {
+        "x": 16,
+        "y": 496,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 2",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 16,
+        "sizeZ": 297
+      },
+      "position": {
+        "x": 16,
+        "y": 992,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 3",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 16,
+        "sizeZ": 297
+      },
+      "position": {
+        "x": 16,
+        "y": 1488,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 1968,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 297
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 2000,
+        "sizeZ": 300
+      },
+      "position": {
+        "x": 784,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 2000,
+        "sizeZ": 300
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 1",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 16,
+        "sizeZ": 297
+      },
+      "position": {
+        "x": 16,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 2",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 16,
+        "sizeZ": 297
+      },
+      "position": {
+        "x": 16,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 3",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 16,
+        "sizeZ": 297
+      },
+      "position": {
+        "x": 16,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 4",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 16,
+        "sizeZ": 297
+      },
+      "position": {
+        "x": 16,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 800,
+        "sizeY": 16,
+        "sizeZ": 300
+      },
+      "position": {
+        "x": 0,
+        "y": 1984,
+        "z": 0
+      }
+    }
+  ],
+  "estanteria.min": [
+    {
+      "nombre": "Base inferior",
+      "kind": "base",
+      "dimension": {
+        "sizeX": 200,
+        "sizeY": 12,
+        "sizeZ": 150
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 176,
+        "sizeY": 176,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 12,
+        "y": 12,
+        "z": 147
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 12,
+        "sizeY": 200,
+        "sizeZ": 150
+      },
+      "position": {
+        "x": 188,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 12,
+        "sizeY": 200,
+        "sizeZ": 150
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 200,
+        "sizeY": 12,
+        "sizeZ": 150
+      },
+      "position": {
+        "x": 0,
+        "y": 188,
+        "z": 0
+      }
+    }
+  ],
+  "estanteria.max": [
+    {
+      "nombre": "Base inferior",
+      "kind": "base",
+      "dimension": {
+        "sizeX": 1200,
+        "sizeY": 18,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 1",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 216.55,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 10",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 2165.45,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 2",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 433.09,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 3",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 649.64,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 4",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 866.18,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 5",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 1082.73,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 6",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 1299.27,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 7",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 1515.82,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 8",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 1732.36,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Entrepño 9",
+      "kind": "entepano",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 1948.91,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 2364,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 18,
+        "y": 18,
+        "z": 397
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 18,
+        "sizeY": 2400,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 1182,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 18,
+        "sizeY": 2400,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 1",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 10",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 11",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 12",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 13",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 14",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 15",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 16",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 17",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 18",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 19",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 2",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 20",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 3",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 4",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 5",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 6",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 7",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 8",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Repisa 9",
+      "kind": "repisa",
+      "dimension": {
+        "sizeX": 1164,
+        "sizeY": 18,
+        "sizeZ": 397
+      },
+      "position": {
+        "x": 18,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 1200,
+        "sizeY": 18,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 0,
+        "y": 2382,
+        "z": 0
+      }
+    }
+  ],
+  "mesita.default": [
+    {
+      "nombre": "Base cajón 1",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 3,
+        "sizeZ": 377
+      },
+      "position": {
+        "x": 30,
+        "y": 20,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 518,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 397
+      }
+    },
+    {
+      "nombre": "Fondo cajón 1",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 494,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 20,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Frente cajón 1",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 526,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 4,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 494,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 420,
+        "y": 20,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 534,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 434,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 494,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 20,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 534,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Pata 1",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 16,
+        "y": -50,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Pata 2",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 16,
+        "y": -50,
+        "z": 354
+      }
+    },
+    {
+      "nombre": "Pata 3",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 404,
+        "y": -50,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Pata 4",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 404,
+        "y": -50,
+        "z": 354
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 450,
+        "sizeY": 16,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 0,
+        "y": 534,
+        "z": 0
+      }
+    }
+  ],
+  "mesita.sin_cajones_sin_patas": [
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 518,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 397
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 534,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 434,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 534,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 450,
+        "sizeY": 16,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 0,
+        "y": 534,
+        "z": 0
+      }
+    }
+  ],
+  "mesita.max_cajones": [
+    {
+      "nombre": "Base cajón 1",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 3,
+        "sizeZ": 377
+      },
+      "position": {
+        "x": 30,
+        "y": 20,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 2",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 3,
+        "sizeZ": 377
+      },
+      "position": {
+        "x": 30,
+        "y": 86.75,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 3",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 3,
+        "sizeZ": 377
+      },
+      "position": {
+        "x": 30,
+        "y": 153.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 4",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 3,
+        "sizeZ": 377
+      },
+      "position": {
+        "x": 30,
+        "y": 220.25,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 5",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 3,
+        "sizeZ": 377
+      },
+      "position": {
+        "x": 30,
+        "y": 287,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 6",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 3,
+        "sizeZ": 377
+      },
+      "position": {
+        "x": 30,
+        "y": 353.75,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 7",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 3,
+        "sizeZ": 377
+      },
+      "position": {
+        "x": 30,
+        "y": 420.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 8",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 3,
+        "sizeZ": 377
+      },
+      "position": {
+        "x": 30,
+        "y": 487.25,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 518,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 397
+      }
+    },
+    {
+      "nombre": "Fondo cajón 1",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 26.75,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 20,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 2",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 26.75,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 86.75,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 3",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 26.75,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 153.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 4",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 26.75,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 220.25,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 5",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 26.75,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 287,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 6",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 26.75,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 353.75,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 7",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 26.75,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 420.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 8",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 386,
+        "sizeY": 26.75,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 487.25,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Frente cajón 1",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 58.75,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 4,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 2",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 58.75,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 70.75,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 3",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 58.75,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 137.5,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 4",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 58.75,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 204.25,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 5",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 58.75,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 271,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 6",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 58.75,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 337.75,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 7",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 58.75,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 404.5,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 8",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 418,
+        "sizeY": 58.75,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 471.25,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 420,
+        "y": 20,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 420,
+        "y": 86.75,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 3",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 420,
+        "y": 153.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 4",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 420,
+        "y": 220.25,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 5",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 420,
+        "y": 287,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 6",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 420,
+        "y": 353.75,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 7",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 420,
+        "y": 420.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 8",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 420,
+        "y": 487.25,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 534,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 434,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 20,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 86.75,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 3",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 153.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 4",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 220.25,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 5",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 287,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 6",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 353.75,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 7",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 420.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 8",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 377,
+        "sizeY": 26.75,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 487.25,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 534,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Pata 1",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 16,
+        "y": -50,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Pata 2",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 16,
+        "y": -50,
+        "z": 354
+      }
+    },
+    {
+      "nombre": "Pata 3",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 404,
+        "y": -50,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Pata 4",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 404,
+        "y": -50,
+        "z": 354
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 450,
+        "sizeY": 16,
+        "sizeZ": 400
+      },
+      "position": {
+        "x": 0,
+        "y": 534,
+        "z": 0
+      }
+    }
+  ],
+  "mesa.default": [
+    {
+      "nombre": "Pata delantera der.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 725,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 1115,
+        "y": 0,
+        "z": 40
+      }
+    },
+    {
+      "nombre": "Pata delantera izq.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 725,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 40,
+        "y": 0,
+        "z": 40
+      }
+    },
+    {
+      "nombre": "Pata trasera der.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 725,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 1115,
+        "y": 0,
+        "z": 615
+      }
+    },
+    {
+      "nombre": "Pata trasera izq.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 725,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 40,
+        "y": 0,
+        "z": 615
+      }
+    },
+    {
+      "nombre": "Tablero superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 1200,
+        "sizeY": 25,
+        "sizeZ": 700
+      },
+      "position": {
+        "x": 0,
+        "y": 725,
+        "z": 0
+      }
+    }
+  ],
+  "mesa.compacta": [
+    {
+      "nombre": "Pata delantera der.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 581,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 515,
+        "y": 0,
+        "z": 40
+      }
+    },
+    {
+      "nombre": "Pata delantera izq.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 581,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 40,
+        "y": 0,
+        "z": 40
+      }
+    },
+    {
+      "nombre": "Pata trasera der.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 581,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 515,
+        "y": 0,
+        "z": 515
+      }
+    },
+    {
+      "nombre": "Pata trasera izq.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 581,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 40,
+        "y": 0,
+        "z": 515
+      }
+    },
+    {
+      "nombre": "Tablero superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 600,
+        "sizeY": 19,
+        "sizeZ": 600
+      },
+      "position": {
+        "x": 0,
+        "y": 581,
+        "z": 0
+      }
+    }
+  ],
+  "mesa.grande": [
+    {
+      "nombre": "Pata delantera der.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 875,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 2415,
+        "y": 0,
+        "z": 40
+      }
+    },
+    {
+      "nombre": "Pata delantera izq.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 875,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 40,
+        "y": 0,
+        "z": 40
+      }
+    },
+    {
+      "nombre": "Pata trasera der.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 875,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 2415,
+        "y": 0,
+        "z": 1015
+      }
+    },
+    {
+      "nombre": "Pata trasera izq.",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 45,
+        "sizeY": 875,
+        "sizeZ": 45
+      },
+      "position": {
+        "x": 40,
+        "y": 0,
+        "z": 1015
+      }
+    },
+    {
+      "nombre": "Tablero superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 2500,
+        "sizeY": 25,
+        "sizeZ": 1100
+      },
+      "position": {
+        "x": 0,
+        "y": 875,
+        "z": 0
+      }
+    }
+  ],
+  "cocina.default": [
+    {
+      "nombre": "Base cajón 1",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 3,
+        "sizeZ": 557
+      },
+      "position": {
+        "x": 30,
+        "y": 520.4,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 2",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 3,
+        "sizeZ": 557
+      },
+      "position": {
+        "x": 30,
+        "y": 687.2,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base inferior",
+      "kind": "base",
+      "dimension": {
+        "sizeX": 600,
+        "sizeY": 16,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 818,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 577
+      }
+    },
+    {
+      "nombre": "Fondo cajón 1",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 126.8,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 520.4,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 2",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 126.8,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 687.2,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Frente cajón 1",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 158.8,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 504.4,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 2",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 158.8,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 671.2,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 126.8,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 570,
+        "y": 520.4,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 126.8,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 570,
+        "y": 687.2,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 850,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 584,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 126.8,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 520.4,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 126.8,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 687.2,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 850,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Puerta",
+      "kind": "puerta",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 496.4,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 16,
+        "y": 18,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 600,
+        "sizeY": 16,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 0,
+        "y": 834,
+        "z": 0
+      }
+    }
+  ],
+  "cocina.solo_cajones": [
+    {
+      "nombre": "Base cajón 1",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 3,
+        "sizeZ": 557
+      },
+      "position": {
+        "x": 30,
+        "y": 520.4,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 2",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 3,
+        "sizeZ": 557
+      },
+      "position": {
+        "x": 30,
+        "y": 603.8,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 3",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 3,
+        "sizeZ": 557
+      },
+      "position": {
+        "x": 30,
+        "y": 687.2,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 4",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 3,
+        "sizeZ": 557
+      },
+      "position": {
+        "x": 30,
+        "y": 770.6,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base inferior",
+      "kind": "base",
+      "dimension": {
+        "sizeX": 600,
+        "sizeY": 16,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 818,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 577
+      }
+    },
+    {
+      "nombre": "Fondo cajón 1",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 43.4,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 520.4,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 2",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 43.4,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 603.8,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 3",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 43.4,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 687.2,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 4",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 536,
+        "sizeY": 43.4,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 770.6,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Frente cajón 1",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 75.4,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 504.4,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 2",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 75.4,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 587.8,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 3",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 75.4,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 671.2,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 4",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 75.4,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 754.6,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 43.4,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 570,
+        "y": 520.4,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 43.4,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 570,
+        "y": 603.8,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 3",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 43.4,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 570,
+        "y": 687.2,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 4",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 43.4,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 570,
+        "y": 770.6,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 850,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 584,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 43.4,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 520.4,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 43.4,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 603.8,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 3",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 43.4,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 687.2,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 4",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 557,
+        "sizeY": 43.4,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 770.6,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 850,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 600,
+        "sizeY": 16,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 0,
+        "y": 834,
+        "z": 0
+      }
+    }
+  ],
+  "cocina.solo_puerta": [
+    {
+      "nombre": "Base inferior",
+      "kind": "base",
+      "dimension": {
+        "sizeX": 600,
+        "sizeY": 16,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 818,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 577
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 850,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 584,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 850,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Puerta",
+      "kind": "puerta",
+      "dimension": {
+        "sizeX": 568,
+        "sizeY": 496.4,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 16,
+        "y": 18,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 600,
+        "sizeY": 16,
+        "sizeZ": 580
+      },
+      "position": {
+        "x": 0,
+        "y": 834,
+        "z": 0
+      }
+    }
+  ],
+  "cajonera.default": [
+    {
+      "nombre": "Base cajón 1",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 2",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 253,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 3",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 470,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 4",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 687,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base inferior",
+      "kind": "base",
+      "dimension": {
+        "sizeX": 800,
+        "sizeY": 16,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 868,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 447
+      }
+    },
+    {
+      "nombre": "Fondo cajón 1",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 177,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 2",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 177,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 253,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 3",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 177,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 470,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 4",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 177,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 687,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Frente cajón 1",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 209,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 20,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 2",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 209,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 237,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 3",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 209,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 454,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 4",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 209,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 671,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 177,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 177,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 253,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 3",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 177,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 470,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 4",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 177,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 687,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 900,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 784,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 177,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 177,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 253,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 3",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 177,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 470,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 4",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 177,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 687,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 900,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Pata 1",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 16,
+        "y": -50,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Pata 2",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 16,
+        "y": -50,
+        "z": 404
+      }
+    },
+    {
+      "nombre": "Pata 3",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 754,
+        "y": -50,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Pata 4",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 754,
+        "y": -50,
+        "z": 404
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 800,
+        "sizeY": 16,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 0,
+        "y": 884,
+        "z": 0
+      }
+    }
+  ],
+  "cajonera.un_cajon_sin_patas": [
+    {
+      "nombre": "Base cajón 1",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base inferior",
+      "kind": "base",
+      "dimension": {
+        "sizeX": 800,
+        "sizeY": 16,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 868,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 447
+      }
+    },
+    {
+      "nombre": "Fondo cajón 1",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 828,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Frente cajón 1",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 860,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 20,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 828,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 900,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 784,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 828,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 900,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 800,
+        "sizeY": 16,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 0,
+        "y": 884,
+        "z": 0
+      }
+    }
+  ],
+  "cajonera.max_cajones": [
+    {
+      "nombre": "Base cajón 1",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 2",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 144.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 3",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 253,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 4",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 361.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 5",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 470,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 6",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 578.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 7",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 687,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base cajón 8",
+      "kind": "cajon_base",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 3,
+        "sizeZ": 427
+      },
+      "position": {
+        "x": 30,
+        "y": 795.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Base inferior",
+      "kind": "base",
+      "dimension": {
+        "sizeX": 800,
+        "sizeY": 16,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Fondo",
+      "kind": "fondo",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 868,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 16,
+        "y": 16,
+        "z": 447
+      }
+    },
+    {
+      "nombre": "Fondo cajón 1",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 68.5,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 2",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 68.5,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 144.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 3",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 68.5,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 253,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 4",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 68.5,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 361.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 5",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 68.5,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 470,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 6",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 68.5,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 578.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 7",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 68.5,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 687,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Fondo cajón 8",
+      "kind": "cajon_fondo",
+      "dimension": {
+        "sizeX": 736,
+        "sizeY": 68.5,
+        "sizeZ": 3
+      },
+      "position": {
+        "x": 30,
+        "y": 795.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Frente cajón 1",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 100.5,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 20,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 2",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 100.5,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 128.5,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 3",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 100.5,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 237,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 4",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 100.5,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 345.5,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 5",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 100.5,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 454,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 6",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 100.5,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 562.5,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 7",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 100.5,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 671,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Frente cajón 8",
+      "kind": "cajon_frente",
+      "dimension": {
+        "sizeX": 768,
+        "sizeY": 100.5,
+        "sizeZ": 16
+      },
+      "position": {
+        "x": 14,
+        "y": 779.5,
+        "z": -2
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 144.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 3",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 253,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 4",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 361.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 5",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 470,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 6",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 578.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 7",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 687,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral der. cajón 8",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 770,
+        "y": 795.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral derecho",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 900,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 784,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 1",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 36,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 2",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 144.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 3",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 253,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 4",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 361.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 5",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 470,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 6",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 578.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 7",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 687,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izq. cajón 8",
+      "kind": "cajon_lateral",
+      "dimension": {
+        "sizeX": 427,
+        "sizeY": 68.5,
+        "sizeZ": 12
+      },
+      "position": {
+        "x": 18,
+        "y": 795.5,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Lateral izquierdo",
+      "kind": "lateral",
+      "dimension": {
+        "sizeX": 16,
+        "sizeY": 900,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "nombre": "Pata 1",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 16,
+        "y": -50,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Pata 2",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 16,
+        "y": -50,
+        "z": 404
+      }
+    },
+    {
+      "nombre": "Pata 3",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 754,
+        "y": -50,
+        "z": 16
+      }
+    },
+    {
+      "nombre": "Pata 4",
+      "kind": "pata",
+      "dimension": {
+        "sizeX": 30,
+        "sizeY": 50,
+        "sizeZ": 30
+      },
+      "position": {
+        "x": 754,
+        "y": -50,
+        "z": 404
+      }
+    },
+    {
+      "nombre": "Tapa superior",
+      "kind": "tapa",
+      "dimension": {
+        "sizeX": 800,
+        "sizeY": 16,
+        "sizeZ": 450
+      },
+      "position": {
+        "x": 0,
+        "y": 884,
+        "z": 0
+      }
+    }
+  ]
+}

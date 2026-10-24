@@ -28,6 +28,15 @@ export interface CutDimension {
   grosor: number
 }
 
+export type CantosEstado = 'sin_canto' | 'largo' | 'cuatro_lados'
+
+export interface PriceSet {
+  materiales: Record<string, number>
+  cantos: Record<string, number>
+  herrajes: Record<string, number>
+  moneda: string
+}
+
 export interface Position {
   x: number
   y: number
@@ -57,6 +66,11 @@ export interface Piece {
   scale: Scale
   materialId: string
   color: string
+  generationKey?: string
+  nombreCustom?: boolean
+  materialCustom?: boolean
+  cantos?: CantosEstado
+  cantosCustom?: boolean
 }
 
 export interface HardwareItem {
@@ -85,6 +99,7 @@ export interface FurnitureConfig {
   tienePuertas: boolean
   usaPatas: boolean
   cantidadPatas: number
+  materialId?: string
 }
 
 export interface Project {

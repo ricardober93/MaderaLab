@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useProjectStore } from '../stores/projectStore'
 import { generateCutList } from '../lib/parametric'
+import { computeBudget } from '../lib/budget'
+import { loadPriceSet, formatMoneda } from '../lib/prices'
 import { computeFrontalView, computeLateralView, computeTopView } from '../lib/orthographic'
 import type { OrthographicViewData } from '../lib/orthographic'
 import { exportProject, importProject, saveProject } from '../lib/storage'
@@ -8,6 +10,8 @@ import { MATERIALES } from '../data/catalogs'
 import type { Project, TransformMode } from '../types'
 import jsPDF from 'jspdf'
 import autoTable from 'jspdf-autotable'
+import { BudgetModal } from './BudgetModal'
+import { RenderModal } from './RenderModal'
 
 const MODE_LABELS: Record<TransformMode, { label: string; key: string }> = {
   translate: { label: 'Mover', key: 'W' },
@@ -23,6 +27,11 @@ export function Toolbar() {
   const transformMode = useProjectStore((s) => s.transformMode)
   const toggleOrthographicView = useProjectStore((s) => s.toggleOrthographicView)
   const setShowShortcuts = useProjectStore((s) => s.setShowShortcuts)
+  const setShowBudget = useProjectStore((s) => s.setShowBudget)
+  const showBudget = useProjectStore((s) => s.showBudget)
+  const setShowRender = useProjectStore((s) => s.setShowRender)
+  const showRender = useProjectStore((s) => s.showRender)
+  const lastRenderDataUrl = useProjectStore((s) => s.lastRenderDataUrl)
   const setTransformMode = useProjectStore((s) => s.setTransformMode)
   const createProject = useProjectStore((s) => s.createProject)
   const undo = useProjectStore((s) => s.undo)
@@ -64,10 +73,14 @@ export function Toolbar() {
     input.click()
   }
 
-  const handleExportPDF = () => {
+  const handleExportPDF = async () => {
     if (!project) return
-    generatePDF(project)
-    notifyFlash('PDF exportado ✓')
+    try {
+      await generatePDF(project, lastRenderDataUrl)
+      notifyFlash('PDF exportado ✓')
+    } catch {
+      notifyFlash('Error al exportar PDF')
+    }
   }
 
   const handleExportCSV = () => {
@@ -122,6 +135,20 @@ export function Toolbar() {
       >
         Vistas 2D
       </button>
+      <button
+        onClick={() => setShowBudget(true)}
+        className={btnSecondary}
+        disabled={!project}
+      >
+        Presupuesto
+      </button>
+      <button
+        onClick={() => setShowRender(true)}
+        className={btnSecondary}
+        disabled={!project}
+      >
+        Render
+      </button>
 
       <div className="w-px h-6 bg-neutral-200" />
 
@@ -146,6 +173,9 @@ export function Toolbar() {
         )}
         {project && <span className="text-sm text-neutral-500">{project.nombre}</span>}
       </span>
+
+      {showBudget && project && <BudgetModal project={project} />}
+      {showRender && project && <RenderModal project={project} />}
     </div>
   )
 }
@@ -208,7 +238,16 @@ function drawViewPDF(
   doc.setTextColor(0, 0, 0)
 }
 
-function generatePDF(project: Project) {
+async function medirImagen(dataUrl: string): Promise<{ w: number; h: number } | null> {
+  return new Promise((resolve) => {
+    const img = new Image()
+    img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight })
+    img.onerror = () => resolve(null)
+    img.src = dataUrl
+  })
+}
+
+async function generatePDF(project: Project, lastRender: string | null) {
   const doc = new jsPDF()
   const cutList = generateCutList(project.pieces)
 
@@ -218,6 +257,24 @@ function generatePDF(project: Project) {
   doc.text(`Tipo: ${project.config.tipo} | ${project.config.ancho}x${project.config.alto}x${project.config.profundidad} mm`, 14, 30)
   doc.text(`Fecha: ${new Date(project.updatedAt).toLocaleDateString('es')}`, 14, 36)
 
+  const dims = lastRender ? await medirImagen(lastRender) : null
+
+  if (lastRender && dims) {
+    let w = 172
+    let h = w * (dims.h / dims.w)
+    if (h > 210) {
+      h = 210
+      w = h * (dims.w / dims.h)
+    }
+    doc.setFontSize(14)
+    doc.text('Render de presentación', 14, 48)
+    doc.setTextColor(120, 120, 120)
+    doc.setFontSize(8)
+    doc.text('Generado con el render de MaderaLab (sombra de contacto incluida)', 14, 54)
+    doc.setTextColor(0, 0, 0)
+    doc.addImage(lastRender, 'PNG', (210 - w) / 2, 58, w, h)
+    doc.addPage()
+  }
   const frontalData = computeFrontalView(project.pieces)
   const lateralData = computeLateralView(project.pieces)
   const topData = computeTopView(project.pieces)
@@ -252,6 +309,10 @@ function generatePDF(project: Project) {
   const lastTable = (doc as unknown as Record<string, unknown>).lastAutoTable as { finalY: number } | undefined
   const currentY = lastTable?.finalY || 160
 
+  const prices = loadPriceSet()
+  const budget = computeBudget(project, prices)
+  const fmt = (n: number) => formatMoneda(n, prices.moneda)
+
   if (project.hardware.length > 0) {
     doc.setFontSize(14)
     doc.text('Herrajes', 14, currentY + 12)
@@ -265,16 +326,59 @@ function generatePDF(project: Project) {
     })
   }
 
+  const lastTable2 = (doc as unknown as Record<string, unknown>).lastAutoTable as { finalY: number } | undefined
+  const yHerrajes = lastTable2?.finalY || currentY + 40
+
+  doc.setFontSize(14)
+  doc.text('Presupuesto', 14, yHerrajes + 12)
+
+  autoTable(doc, {
+    startY: yHerrajes + 18,
+    head: [['Concepto', 'Detalle', 'Costo']],
+    body: [
+      ...budget.materiales.map((m) => [m.nombre, `${m.m2.toFixed(2)} m² × ${fmt(m.unit)}`, fmt(m.total)]),
+      ...budget.cantos.map((c) => [
+        c.nombre + (c.sinPrecio ? ' (sin precio)' : ''),
+        `${c.metros.toFixed(2)} m × ${fmt(c.unit)}`,
+        fmt(c.total),
+      ]),
+      ...budget.herrajes.map((h) => [
+        h.nombre + (h.sinPrecio ? ' (sin precio)' : ''),
+        `${h.especificacion} × ${h.cantidad} × ${fmt(h.unit)}`,
+        fmt(h.total),
+      ]),
+      ['TOTAL', '', fmt(budget.total)],
+    ],
+    theme: 'grid',
+    headStyles: { fillColor: [16, 122, 87] },
+    didParseCell: (data) => {
+      if (data.section === 'body' && data.row.index === budget.materiales.length + budget.cantos.length + budget.herrajes.length) {
+        data.cell.styles.fontStyle = 'bold'
+      }
+    },
+  })
+
   doc.save(`${project.nombre.replace(/\s+/g, '_')}.pdf`)
 }
 
 function generateCSV(project: Project) {
   const cutList = generateCutList(project.pieces)
+  const prices = loadPriceSet()
+  const budget = computeBudget(project, prices)
+  const fmt = (n: number) => formatMoneda(n, prices.moneda)
   const header = 'Pieza,Cantidad,Largo (mm),Ancho (mm),Grosor (mm),Material'
   const rows = cutList.map((r) =>
     `${r.nombre},${r.cantidad},${r.largo},${r.ancho},${r.grosor},${MATERIALES.find((m) => m.id === r.material)?.nombre || r.material}`
   )
-  const csv = [header, ...rows].join('\n')
+
+  const budgetHeader = 'Concepto,Detalle,Costo'
+  const budgetRows: string[] = []
+  for (const m of budget.materiales) budgetRows.push(`Material ${m.nombre},${m.m2.toFixed(2)} m2 x ${fmt(m.unit)},${fmt(m.total)}`)
+  for (const c of budget.cantos) budgetRows.push(`Canto ${c.nombre}${c.sinPrecio ? ' (sin precio)' : ''},${c.metros.toFixed(2)} m x ${fmt(c.unit)},${fmt(c.total)}`)
+  for (const h of budget.herrajes) budgetRows.push(`Herraje ${h.nombre}${h.sinPrecio ? ' (sin precio)' : ''},${h.especificacion} x ${h.cantidad} x ${fmt(h.unit)},${fmt(h.total)}`)
+  budgetRows.push(`Total,,${fmt(budget.total)}`)
+
+  const csv = [header, ...rows, '', 'Presupuesto', budgetHeader, ...budgetRows].join('\n')
   const blob = new Blob([csv], { type: 'text/csv' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')

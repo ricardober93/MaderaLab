@@ -1,0 +1,644 @@
+{
+  "estanteria.default": [
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 20
+    },
+    {
+      "id": "soporte_repisa",
+      "nombre": "Soporte de repisa",
+      "especificacion": "5mm",
+      "cantidad": 32
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 20
+    },
+    {
+      "id": "tornillo_fondo_3x16",
+      "nombre": "Tornillo fondo",
+      "especificacion": "3 × 16mm",
+      "cantidad": 8
+    }
+  ],
+  "estanteria.min": [
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 8
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 8
+    },
+    {
+      "id": "tornillo_fondo_3x16",
+      "nombre": "Tornillo fondo",
+      "especificacion": "3 × 16mm",
+      "cantidad": 4
+    }
+  ],
+  "estanteria.max": [
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 48
+    },
+    {
+      "id": "soporte_repisa",
+      "nombre": "Soporte de repisa",
+      "especificacion": "5mm",
+      "cantidad": 160
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 48
+    },
+    {
+      "id": "tornillo_fondo_3x16",
+      "nombre": "Tornillo fondo",
+      "especificacion": "3 × 16mm",
+      "cantidad": 12
+    }
+  ],
+  "mesita.default": [
+    {
+      "id": "corredera_400",
+      "nombre": "Corredera de cajón",
+      "especificacion": "377mm",
+      "cantidad": 2
+    },
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 16
+    },
+    {
+      "id": "tacos_nivelacion",
+      "nombre": "Tacos de nivelación",
+      "especificacion": "10mm",
+      "cantidad": 4
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 16
+    }
+  ],
+  "mesita.sin_cajones_sin_patas": [
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 8
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 8
+    }
+  ],
+  "mesita.max_cajones": [
+    {
+      "id": "corredera_400",
+      "nombre": "Corredera de cajón",
+      "especificacion": "377mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_400",
+      "nombre": "Corredera de cajón",
+      "especificacion": "377mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_400",
+      "nombre": "Corredera de cajón",
+      "especificacion": "377mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_400",
+      "nombre": "Corredera de cajón",
+      "especificacion": "377mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_400",
+      "nombre": "Corredera de cajón",
+      "especificacion": "377mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_400",
+      "nombre": "Corredera de cajón",
+      "especificacion": "377mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_400",
+      "nombre": "Corredera de cajón",
+      "especificacion": "377mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_400",
+      "nombre": "Corredera de cajón",
+      "especificacion": "377mm",
+      "cantidad": 2
+    },
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 72
+    },
+    {
+      "id": "tacos_nivelacion",
+      "nombre": "Tacos de nivelación",
+      "especificacion": "10mm",
+      "cantidad": 4
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 72
+    }
+  ],
+  "mesa.default": [
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 16
+    },
+    {
+      "id": "tornillo_confirmat_5x70",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 70mm",
+      "cantidad": 16
+    }
+  ],
+  "mesa.compacta": [
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 16
+    },
+    {
+      "id": "tornillo_confirmat_5x70",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 70mm",
+      "cantidad": 16
+    }
+  ],
+  "mesa.grande": [
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 16
+    },
+    {
+      "id": "tornillo_confirmat_5x70",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 70mm",
+      "cantidad": 16
+    }
+  ],
+  "cocina.default": [
+    {
+      "id": "bisagra_puerta",
+      "nombre": "Bisagra de puerta",
+      "especificacion": "110°",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "557mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "557mm",
+      "cantidad": 2
+    },
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 24
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "128mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 24
+    },
+    {
+      "id": "tornillo_fondo_3x16",
+      "nombre": "Tornillo fondo",
+      "especificacion": "3 × 16mm",
+      "cantidad": 8
+    }
+  ],
+  "cocina.solo_cajones": [
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "557mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "557mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "557mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "557mm",
+      "cantidad": 2
+    },
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 24
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 24
+    },
+    {
+      "id": "tornillo_fondo_3x16",
+      "nombre": "Tornillo fondo",
+      "especificacion": "3 × 16mm",
+      "cantidad": 8
+    }
+  ],
+  "cocina.solo_puerta": [
+    {
+      "id": "bisagra_puerta",
+      "nombre": "Bisagra de puerta",
+      "especificacion": "110°",
+      "cantidad": 2
+    },
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 24
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "128mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 24
+    },
+    {
+      "id": "tornillo_fondo_3x16",
+      "nombre": "Tornillo fondo",
+      "especificacion": "3 × 16mm",
+      "cantidad": 8
+    }
+  ],
+  "cajonera.default": [
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 40
+    },
+    {
+      "id": "tacos_nivelacion",
+      "nombre": "Tacos de nivelación",
+      "especificacion": "10mm",
+      "cantidad": 4
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 40
+    }
+  ],
+  "cajonera.un_cajon_sin_patas": [
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 16
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 16
+    }
+  ],
+  "cajonera.max_cajones": [
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "corredera_500",
+      "nombre": "Corredera de cajón",
+      "especificacion": "427mm",
+      "cantidad": 2
+    },
+    {
+      "id": "dado_confirmat_5mm",
+      "nombre": "Dado confirmat",
+      "especificacion": "5mm",
+      "cantidad": 72
+    },
+    {
+      "id": "tacos_nivelacion",
+      "nombre": "Tacos de nivelación",
+      "especificacion": "10mm",
+      "cantidad": 4
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tirador",
+      "nombre": "Tirador",
+      "especificacion": "96mm",
+      "cantidad": 1
+    },
+    {
+      "id": "tornillo_confirmat_5x50",
+      "nombre": "Tornillo confirmat",
+      "especificacion": "5 × 50mm",
+      "cantidad": 72
+    }
+  ]
+}

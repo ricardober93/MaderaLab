@@ -1,0 +1,36 @@
+# material-override — Spec
+
+## Purpose
+
+Semántica de material base (config) vs. override por pieza y su sobrevivencia al merge de regeneración.
+
+## Requirements
+
+### Requirement: Material base del proyecto dirigido por el select del ConfigPanel
+El select "Material del mueble" (ConfigPanel) SHALL actualizar `config.materialId` y, tras la regeneración con merge, MUST resultar en que todas las piezas sin override explícito por pieza adopten el nuevo material (visible en viewport y lista de piezas).
+
+#### Scenario: Cambio de material del mueble repinta piezas base
+- **WHEN** las 12 piezas de una estantería están en melamina_blanca (sin overrides) y el usuario elige "Pino" en el select
+- **THEN** `config.materialId` = `pino` y las 12 piezas quedan con `materialId = pino`
+
+#### Scenario: Piezas nuevas heredan el material base
+- **WHEN** con material base "Pino" el usuario agrega un entrepaño
+- **THEN** la pieza nueva (`estanteria.entepano.N+1`) nace con `materialId = pino`
+
+### Requirement: Override de material por pieza sobrevive la regeneración
+`updatePieceMaterial` SHALL setear `materialCustom: true` en la pieza; el merge de regeneración MUST conservar el `materialId` previo de piezas con `materialCustom` y MUST recalcular al canónico las piezas sin el flag.
+
+#### Scenario: Pieza personalizada mantiene su material al cambiar el select
+- **WHEN** la tapa fue seteada a "Roble" por el usuario (materialCustom=true) y el resto está en base, y el usuario cambia el select del mueble a "Pino"
+- **THEN** la tapa mantiene `roble` y las demás piezas pasan a `pino`
+
+#### Scenario: Pieza personalizada sobrevive a cambio de dimensiones
+- **WHEN** una pieza con materialCustom=true se regenera por cambio de dimensiones
+- **THEN** conserva su materialId y adopta la geometría canónica
+
+### Requirement: "Material para todas" sincroniza el material base
+`updateAllMaterials` SHALL repintar todas las piezas con el material elegido, setear `config.materialId` al mismo valor, limpiar los flags `materialCustom` (la acción es base, no override masivo), y MUST quedar coherente con el select del ConfigPanel (el select muestra el material aplicado).
+
+#### Scenario: Para todas alinea el select
+- **WHEN** el usuario aplica "Material para todas → Aglomerado" desde PropertiesPanel sin pieza seleccionada
+- **THEN** todas las piezas quedan con materialId `aglomerado` y `config.materialId = aglomerado`

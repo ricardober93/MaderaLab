@@ -1,4 +1,4 @@
-import type { MaterialDef } from '../types'
+import type { MaterialDef, PriceSet } from '../types'
 
 export const MATERIALES: MaterialDef[] = [
   { id: 'mdf', nombre: 'MDF', colorDefault: '#D4A76A', grosoresDisponibles: [3, 6, 12, 15, 16, 18, 25] },
@@ -20,18 +20,54 @@ export const PALETA_COLORES = [
   '#5B7A3D', '#3E6B48', '#8B4513', '#CD853F',
 ]
 
-export const HERRAJES = [
-  { id: 'tornillo_confirmat_5x50', nombre: 'Tornillo confirmat', especificacion: '5 × 50mm', porUnion: 2 },
-  { id: 'tornillo_confirmat_5x70', nombre: 'Tornillo confirmat', especificacion: '5 × 70mm', porUnion: 2 },
-  { id: 'dado_confirmat_5mm', nombre: 'Dado confirmat', especificacion: '5mm', porUnion: 1 },
-  { id: 'tarqueta_6x30', nombre: 'Tarqueta/espiga', especificacion: '6 × 30mm', porUnion: 2 },
-  { id: 'bisagra_35mm', nombre: 'Bisagra de cajón', especificacion: '35mm', porPieza: 2 },
-  { id: 'bisagra_puerta', nombre: 'Bisagra de puerta', especificacion: '110°', porPieza: 2 },
-  { id: 'corredera_300', nombre: 'Corredera de cajón', especificacion: '300mm', porPieza: 1 },
-  { id: 'corredera_400', nombre: 'Corredera de cajón', especificacion: '400mm', porPieza: 1 },
-  { id: 'corredera_500', nombre: 'Corredera de cajón', especificacion: '500mm', porPieza: 1 },
-  { id: 'canto_melaninico', nombre: 'Canto melamínico', especificacion: '22mm', porArista: 1 },
-  { id: 'tirador', nombre: 'Tirador', especificacion: '96mm', porPieza: 1 },
-  { id: 'soporte_repisa', nombre: 'Soporte de repisa', especificacion: '5mm', porRepisaPorLado: 4 },
-  { id: 'tacos_nivelacion', nombre: 'Tacos de nivelación', especificacion: '10mm', porPata: 1 },
+export const CANTOS = [
+  { id: 'canto_melaninico', nombre: 'Canto melamínico', especificacion: '22mm' },
 ]
+
+export const HERRAJES = [
+  { id: 'tornillo_confirmat_5x50', nombre: 'Tornillo confirmat', especificacion: '5 × 50mm' },
+  { id: 'tornillo_confirmat_5x70', nombre: 'Tornillo confirmat', especificacion: '5 × 70mm' },
+  { id: 'tornillo_fondo_3x16', nombre: 'Tornillo fondo', especificacion: '3 × 16mm' },
+  { id: 'dado_confirmat_5mm', nombre: 'Dado confirmat', especificacion: '5mm' },
+  { id: 'tarqueta_6x30', nombre: 'Tarqueta/espiga', especificacion: '6 × 30mm' },
+  { id: 'bisagra_35mm', nombre: 'Bisagra de cajón', especificacion: '35mm' },
+  { id: 'bisagra_puerta', nombre: 'Bisagra de puerta', especificacion: '110°' },
+  { id: 'corredera_300', nombre: 'Corredera de cajón', especificacion: '300mm' },
+  { id: 'corredera_400', nombre: 'Corredera de cajón', especificacion: '400mm' },
+  { id: 'corredera_500', nombre: 'Corredera de cajón', especificacion: '500mm' },
+  { id: 'tirador', nombre: 'Tirador', especificacion: '96mm' },
+  { id: 'soporte_repisa', nombre: 'Soporte de repisa', especificacion: '5mm' },
+  { id: 'tacos_nivelacion', nombre: 'Tacos de nivelación', especificacion: '10mm' },
+]
+
+export const PRECIOS_DEFAULT: PriceSet = {
+  materiales: {
+    mdf: 12000,
+    pino: 9000,
+    roble: 42000,
+    melamina_blanca: 15500,
+    melamina_negra: 16500,
+    melamina_roble: 17000,
+    contrachapado: 13000,
+    aglomerado: 11000,
+  },
+  cantos: {
+    canto_melaninico: 1200,
+  },
+  herrajes: {
+    tornillo_confirmat_5x50: 150,
+    tornillo_confirmat_5x70: 170,
+    tornillo_fondo_3x16: 90,
+    dado_confirmat_5mm: 30,
+    tarqueta_6x30: 200,
+    bisagra_35mm: 2500,
+    bisagra_puerta: 2500,
+    corredera_300: 4500,
+    corredera_400: 5200,
+    corredera_500: 6000,
+    tirador: 3500,
+    soporte_repisa: 250,
+    tacos_nivelacion: 300,
+  },
+  moneda: 'CLP',
+}
